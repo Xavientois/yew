@@ -23,7 +23,7 @@ use yew::context::ContextHandle;
 ///     let theme = use_context::<Rc<ThemeContext>>().expect("no ctx found");
 ///
 ///     html! {
-///         <button style=format!("background: {}; color: {}", theme.background, theme.foreground)>
+///         <button style={format!("background: {}; color: {}", theme.background, theme.foreground)}>
 ///             { "Click me" }
 ///         </button>
 ///     }

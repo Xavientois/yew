@@ -32,14 +32,14 @@ pub trait PureComponent: Properties + PartialEq + Sized + 'static {
 /// impl PureComponent for PureButton {
 ///     fn render(&self) -> Html {
 ///         html! {
-///             <button onclick=&self.callback>{ &self.text }</button>
+///             <button onclick={&self.callback}>{ &self.text }</button>
 ///         }
 ///     }
 /// }
 ///
 /// # fn view() -> Html {
 /// // Pure components can be used like normal components
-/// html! { <Button callback=Callback::from(|_| println!("clicked")) text="Click me!" /> }
+/// html! { <Button callback={Callback::from(|_| println!("clicked"))} text="Click me!" /> }
 /// # }
 /// ```
 #[derive(Debug)]

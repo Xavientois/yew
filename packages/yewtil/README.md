@@ -56,7 +56,7 @@ pub struct PureButton {
 impl PureComponent for PureButton {
     fn render(&self) -> VNode {
         html! {
-            <button onclick=&self.callback>{ &self.text }</button>
+            <button onclick={&self.callback}>{ &self.text }</button>
         }
     }
 }

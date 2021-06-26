@@ -67,8 +67,8 @@ use std::ops::Deref;
 ///                         value=(*self.text).clone()
 ///                         oninput=self.link.callback(|data: InputData| Msg::SetText(data.value))
 ///                     />
-///                     <button onclick=self.link.callback(|_| Msg::Reset)>{ "Reset to the oldest value" }</button>
-///                     <button onclick=self.link.callback(|_| Msg::Forget)>{ "Forget prior values" }</button>
+///                     <button onclick={self.link.callback(|_| Msg::Reset)}>{ "Reset to the oldest value" }</button>
+///                     <button onclick={self.link.callback(|_| Msg::Forget)}>{ "Forget prior values" }</button>
 ///                 </div>
 ///                 <div>
 ///                     <span>{ "History" }</span>

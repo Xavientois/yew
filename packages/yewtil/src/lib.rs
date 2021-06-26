@@ -47,13 +47,13 @@ pub use pure::{Pure, PureComponent};
 ///     #[prop_or_default] text: String,
 /// ) -> Html {
 ///     html! {
-///         <button onclick=callback>{ text }</button>
+///         <button onclick={callback}>{ text }</button>
 ///     }
 /// }
 ///
 /// # fn view() -> Html {
 /// // You can then use it like a normal component
-/// html! { <Button callback=Callback::from(|_| println!("Clicked")) text="Click me!" /> }
+/// html! { <Button callback={Callback::from(|_| println!("Clicked"))} text="Click me!" /> }
 /// # }
 /// ```
 #[deprecated]
