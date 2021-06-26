@@ -75,7 +75,7 @@ impl Component for Model {
             <div>
                 <div>
                     <p>{ "Choose a file to upload to see the uploaded bytes" }</p>
-                    <input type="file" multiple=true onchange=self.link.callback(move |value| {
+                    <input type="file" multiple=true onchange={self.link.callback(move |value| {
                             let mut result = Vec::new();
                             if let ChangeData::Files(files) = value {
                                 let files = js_sys::try_iter(&files)
@@ -85,12 +85,12 @@ impl Component for Model {
                                 result.extend(files);
                             }
                             Msg::Files(result, flag)
-                        })
+                        })}
                     />
                 </div>
                 <div>
                     <label>{ "By chunks" }</label>
-                    <input type="checkbox" checked=flag onclick=self.link.callback(|_| Msg::ToggleByChunks) />
+                    <input type="checkbox" checked={flag} onclick={self.link.callback(|_| Msg::ToggleByChunks)} />
                 </div>
                 <ul>
                     { for self.files.iter().map(|f| Self::view_file(f)) }

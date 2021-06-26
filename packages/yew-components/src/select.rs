@@ -137,19 +137,19 @@ where
         let view_option = |value: &T| {
             let flag = selected == Some(value);
             html! {
-                <option value=value.to_string() selected=flag>{ value.to_string() }</option>
+                <option value={value.to_string()} selected={flag}>{ value.to_string() }</option>
             }
         };
 
         html! {
             <select
-                ref=self.select_ref.clone()
-                id=self.props.id.clone()
-                class=self.props.class.clone()
-                disabled=self.props.disabled
-                onchange=self.on_change()
+                ref={self.select_ref.clone()}
+                id={self.props.id.clone()}
+                class={self.props.class.clone()}
+                disabled={self.props.disabled}
+                onchange={self.on_change()}
             >
-                <option value="" disabled=true selected=selected.is_none()>
+                <option value="" disabled=true selected={selected.is_none()}>
                     { self.props.placeholder.clone() }
                 </option>
                 { for self.props.options.iter().map(view_option) }
@@ -181,7 +181,7 @@ mod tests {
     fn can_create_select() {
         let on_change = Callback::<u8>::default();
         html! {
-            <Select<u8> on_change=on_change />
+            <Select<u8> on_change={on_change} />
         };
     }
 
@@ -189,7 +189,7 @@ mod tests {
     fn can_create_select_with_class() {
         let on_change = Callback::<u8>::default();
         html! {
-            <Select<u8> on_change=on_change class="form-control" />
+            <Select<u8> on_change={on_change} class="form-control" />
         };
     }
 
@@ -197,7 +197,7 @@ mod tests {
     fn can_create_select_with_id() {
         let on_change = Callback::<u8>::default();
         html! {
-            <Select<u8> on_change=on_change id="test-select" />
+            <Select<u8> on_change={on_change} id="test-select" />
         };
     }
 
@@ -205,7 +205,7 @@ mod tests {
     fn can_create_select_with_placeholder() {
         let on_change = Callback::<u8>::default();
         html! {
-            <Select<u8> on_change=on_change placeholder="--Please choose an option--" />
+            <Select<u8> on_change={on_change} placeholder="--Please choose an option--" />
         };
     }
 }

@@ -187,30 +187,30 @@ impl Component for Model {
         html! {
             <div>
                 <nav class="menu">
-                    <button onclick=self.link.callback(|_| Msg::FetchData(Format::Json, false))>
+                    <button onclick={self.link.callback(|_| Msg::FetchData(Format::Json, false))}>
                         { "Fetch Data" }
                     </button>
-                    <button onclick=self.link.callback(|_| Msg::FetchData(Format::Json, true))>
+                    <button onclick={self.link.callback(|_| Msg::FetchData(Format::Json, true))}>
                         { "Fetch Data [binary]" }
                     </button>
-                    <button onclick=self.link.callback(|_| Msg::FetchData(Format::Toml, false))>
+                    <button onclick={self.link.callback(|_| Msg::FetchData(Format::Toml, false))}>
                         { "Fetch Data [toml]" }
                     </button>
                     { self.view_data() }
-                    <button disabled=self.ws.is_some()
-                            onclick=self.link.callback(|_| WsAction::Connect)>
+                    <button disabled={self.ws.is_some()}
+                            onclick={self.link.callback(|_| WsAction::Connect)}>
                         { "Connect To WebSocket" }
                     </button>
-                    <button disabled=self.ws.is_none()
-                            onclick=self.link.callback(|_| WsAction::SendData(false))>
+                    <button disabled={self.ws.is_none()}
+                            onclick={self.link.callback(|_| WsAction::SendData(false))}>
                         { "Send To WebSocket" }
                     </button>
-                    <button disabled=self.ws.is_none()
-                            onclick=self.link.callback(|_| WsAction::SendData(true))>
+                    <button disabled={self.ws.is_none()}
+                            onclick={self.link.callback(|_| WsAction::SendData(true))}>
                         { "Send To WebSocket [binary]" }
                     </button>
-                    <button disabled=self.ws.is_none()
-                            onclick=self.link.callback(|_| WsAction::Disconnect)>
+                    <button disabled={self.ws.is_none()}
+                            onclick={self.link.callback(|_| WsAction::Disconnect)}>
                         { "Close WebSocket connection" }
                     </button>
                 </nav>
