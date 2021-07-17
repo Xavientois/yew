@@ -57,10 +57,10 @@ impl<COMP> Effect<COMP> {
 ///             <>
 ///                 <span>{ self.value }</span>
 ///                 <button
-///                     onclick=self.link.callback(|_| effect(|model: &mut Self| {
+///                     onclick={self.link.callback(|_| effect(|model: &mut Self| {
 ///                         model.value = !model.value;
 ///                         true
-///                     }))
+///                     }))}
 ///                 >
 ///                     { "Toggle" }
 ///                 </button>
